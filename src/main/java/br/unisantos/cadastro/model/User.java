@@ -72,8 +72,4 @@ public class User implements Serializable {
 		this.idiomas = idiomas;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 }
