@@ -12,7 +12,39 @@
 	<h2>Atualize seu cadastro</h2>
 	<h:form>
 		<h:panelGrid columns="2">
-			<!-- Dados do formuário serão inseridos aqui -->
+			<h:outputLabel for="especial" value="Necessidades especiais:" />
+			<h:selectBooleanCheckbox id="especial"
+				value="#{userBean.user.especial}" />
+
+			<h:outputLabel value="Cores Favoritas:" for="cores" />
+			<h:selectManyCheckbox id="cores" value="#{userBean.user.cores}"
+				border="1" layout="pageDirection">
+				<f:selectItem itemValue="Red" itemLabel="Vermelho" />
+				<f:selectItem itemValue="Blue" itemLabel="Azul" />
+				<f:selectItem itemValue="Yellow" itemLabel="Amarelo" />
+				<f:selectItem itemValue="Green" itemLabel="Verde" />
+			</h:selectManyCheckbox>
+
+			<h:outputLabel value="Escolaridade:" for="escolaridade" />
+			<h:selectOneRadio value="#{userBean.user.escolaridade}"
+				id="escolaridade" border="1" layout="pageDirection">
+				<f:selectItem itemValue="Ensino Fundamental"
+					itemLabel="Ensino Fundamental" />
+				<f:selectItem itemValue="Ensino Médio" itemLabel="Ensino Médio" />
+				<f:selectItem itemValue="Graduação" itemLabel="Graduação" />
+				<f:selectItem itemValue="Pós-graduação" itemLabel="Pós-graduação" />
+			</h:selectOneRadio>
+
+			<h:outputLabel value="Ano de obtenção:" for="ano" />
+			<h:selectOneMenu value="#{userBean.user.anoFormacao}" id="ano"
+				>
+				<f:selectItems value="#{userBean.anosFormacao}" />
+			</h:selectOneMenu>
+
+			<h:outputLabel value="Idiomas:" for="idiomas" />
+			<h:selectManyMenu id="idiomas" value="#{userBean.user.idiomas}">
+				<f:selectItems value="#{userBean.listaDeIdiomas}" />
+			</h:selectManyMenu>
 		</h:panelGrid>
 		<h:commandButton value="Atualizar" action="/info" />
 		<h:commandButton value="Sair" action="/index" />
